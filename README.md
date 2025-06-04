@@ -2,7 +2,7 @@
 
 A lightweight, modern CSS framework that provides essential utilities and components for rapid web development.
 
-## 🌟 Features
+## Features
 
 - **Lightweight**: Minimal footprint with only the essentials
 - **Modern**: Built with modern CSS practices and design principles
@@ -12,28 +12,14 @@ A lightweight, modern CSS framework that provides essential utilities and compon
 - **Typography**: Clean, readable typography system
 - **Components**: Essential UI components like buttons, forms, and navigation
 
-## 📖 Documentation
+## Documentation
 
 View the complete documentation and live examples at:
 **[https://dustinpoissant.github.io/essential-css/](https://dustinpoissant.github.io/essential-css/)**
 
-## 🚀 Installation
+## Installation
 
-### CDN (Recommended)
-
-Add Essential CSS to your HTML via CDN:
-
-```html
-<link rel="stylesheet" href="https://dustinpoissant.github.io/essential-css/essential.css">
-```
-
-For syntax highlighting support, also include:
-
-```html
-<link rel="stylesheet" href="https://dustinpoissant.github.io/essential-css/essential-hljs.css">
-```
-
-### Download
+### Download (Recommended)
 
 1. Download the CSS files from the [documentation page](https://dustinpoissant.github.io/essential-css/)
 2. Include them in your project:
@@ -61,7 +47,7 @@ npm install
 npm run build
 ```
 
-## 🎨 Quick Start
+## Quick Start
 
 ```html
 <!DOCTYPE html>
@@ -81,15 +67,15 @@ npm run build
 </html>
 ```
 
-## 🛠 Development
+## Development
 
 - `npm run build` - Build minified CSS files
 - `npm run build:watch` - Watch for changes and rebuild automatically
 
-## 📄 License
+## License
 
 ISC License - feel free to use in personal and commercial projects.
 
 ---
 
-⭐ **[View Documentation](https://dustinpoissant.github.io/essential-css/)** | 🐛 **[Report Issues](https://github.com/dustinpoissant/essential-css/issues)**
+**[View Documentation](https://dustinpoissant.github.io/essential-css/)** | **[Report Issues](https://github.com/dustinpoissant/essential-css/issues)**

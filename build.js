@@ -8,9 +8,9 @@ const path = require('path');
 const isWatchMode = process.argv.includes('--watch');
 
 if (isWatchMode) {
-  console.log('👀 Watch mode enabled - monitoring CSS files for changes...\n');
+  console.log('Watch mode enabled - monitoring CSS files for changes...\n');
 } else {
-  console.log('🚀 Building Essential CSS...\n');
+  console.log('Building Essential CSS...\n');
 }
 
 // Define input and output files
@@ -28,7 +28,7 @@ const outputFiles = [
 // Create dist directory if it doesn't exist
 if (!fs.existsSync(outputDir)) {
   fs.mkdirSync(outputDir);
-  console.log(`✅ Created ${outputDir}/ directory`);
+  console.log(`Created ${outputDir}/ directory`);
 }
 
 // Minify each CSS file
@@ -38,7 +38,7 @@ inputFiles.forEach((inputFile, index) => {
   try {
     // Check if input file exists
     if (!fs.existsSync(inputFile)) {
-      console.log(`⚠️  Skipping ${inputFile} (file not found)`);
+      console.log(`Skipping ${inputFile} (file not found)`);
       return;
     }
 
@@ -46,55 +46,53 @@ inputFiles.forEach((inputFile, index) => {
     const originalSize = fs.statSync(inputFile).size;
 
     // Minify the CSS using clean-css-cli
-    console.log(`📦 Minifying ${inputFile}...`);
+    console.log(`Minifying ${inputFile}...`);
     execSync(`npx cleancss -o ${outputFile} ${inputFile}`, { stdio: 'inherit' });
 
     // Get file size after minification
     const minifiedSize = fs.statSync(outputFile).size;
     const savings = ((originalSize - minifiedSize) / originalSize * 100).toFixed(1);
 
-    console.log(`✅ ${inputFile} → ${outputFile}`);
+    console.log(`${inputFile} → ${outputFile}`);
     console.log(`   Original: ${(originalSize / 1024).toFixed(1)}KB`);
     console.log(`   Minified: ${(minifiedSize / 1024).toFixed(1)}KB`);
     console.log(`   Savings: ${savings}%\n`);
-
   } catch (error) {
-    console.error(`❌ Error minifying ${inputFile}:`, error.message);
+    console.error(`Error minifying ${inputFile}:`, error.message);
   }
 });
 
-console.log('🎉 Build complete!');
-console.log(`📁 Minified files are in the ${outputDir}/ directory`);
+console.log('Build complete!');
+console.log(`Minified files are in the ${outputDir}/ directory`);
 
 // Watch mode functionality
 if (isWatchMode) {
-  console.log('🔍 Watching for changes... (Press Ctrl+C to stop)\n');
+  console.log('Watching for changes... (Press Ctrl+C to stop)\n');
   
   inputFiles.forEach(inputFile => {
     if (fs.existsSync(inputFile)) {
       fs.watchFile(inputFile, { interval: 1000 }, (curr, prev) => {
         if (curr.mtime !== prev.mtime) {
-          console.log(`\n📝 ${inputFile} changed, rebuilding...`);
+          console.log(`\n${inputFile} changed, rebuilding...`);
           
           // Find the corresponding output file
           const index = inputFiles.indexOf(inputFile);
           const outputFile = path.join(outputDir, outputFiles[index]);
-          
-          try {
+            try {
             const originalSize = fs.statSync(inputFile).size;
-            console.log(`📦 Minifying ${inputFile}...`);
+            console.log(`Minifying ${inputFile}...`);
             execSync(`npx cleancss -o ${outputFile} ${inputFile}`, { stdio: 'inherit' });
             
             const minifiedSize = fs.statSync(outputFile).size;
             const savings = ((originalSize - minifiedSize) / originalSize * 100).toFixed(1);
             
-            console.log(`✅ ${inputFile} → ${outputFile}`);
+            console.log(`${inputFile} → ${outputFile}`);
             console.log(`   Original: ${(originalSize / 1024).toFixed(1)}KB`);
             console.log(`   Minified: ${(minifiedSize / 1024).toFixed(1)}KB`);
             console.log(`   Savings: ${savings}%`);
-            console.log('\n👀 Watching for changes...');
+            console.log('\nWatching for changes...');
           } catch (error) {
-            console.error(`❌ Error minifying ${inputFile}:`, error.message);
+            console.error(`Error minifying ${inputFile}:`, error.message);
           }
         }
       });
