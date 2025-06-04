@@ -1,6 +1,6 @@
 {
-  "name": "essential-css",
-  "version": "1.0.0",
+  "name": "essentialcss",
+  "version": "1.0.5",
   "description": "",
   "main": "build.js",
   "scripts": {
