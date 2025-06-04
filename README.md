@@ -19,7 +19,25 @@ View the complete documentation and live examples at:
 
 ## Installation
 
-### Download (Recommended)
+### NPM
+
+```bash
+npm install essentialcss
+```
+
+Then include the CSS files in your project:
+```html
+<link rel="stylesheet" href="node_modules/essentialcss/essential.css">
+<link rel="stylesheet" href="node_modules/essentialcss/essential-hljs.css">
+```
+
+Or import in your CSS/SCSS files:
+```css
+@import 'essentialcss/essential.css';
+@import 'essentialcss/essential-hljs.css';
+```
+
+### Download
 
 1. Download the CSS files from the [documentation page](https://dustinpoissant.github.io/essential-css/)
 2. Include them in your project:
